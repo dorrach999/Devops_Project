@@ -25,7 +25,7 @@ pipeline {
             //beforeAgent true
            //}
             steps {
-                dir('backend'){
+                dir('springboot-backend'){
                     sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/backend-springboot:$BUILD_ID .'
                     sh 'docker push $DOCKERHUB_CREDENTIALS_USR/backend-springboot:$BUILD_ID'
                     sh 'docker rmi $DOCKERHUB_CREDENTIALS_USR/backend-springboot:$BUILD_ID'
@@ -40,7 +40,7 @@ pipeline {
              //beforeAgent true
             //}
             steps {
-                dir('backend'){
+                dir('angular-frontend'){
                     sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/frontend-angular:$BUILD_ID .'
                     sh 'docker push $DOCKERHUB_CREDENTIALS_USR/frontend-angular:$BUILD_ID'
                     sh 'docker rmi $DOCKERHUB_CREDENTIALS_USR/frontend-angular:$BUILD_ID'
