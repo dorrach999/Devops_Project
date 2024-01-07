@@ -1,0 +1,96 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="close()"
+  ></button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="saveEmployee()">
+
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" [(ngModel)]="employee.name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control" [(ngModel)]="employee.lastname" name="lastname">
+    </div>
+
+    <div class="form-group">
+      <label>Salary</label>
+      <input type="text" class="form-control" [(ngModel)]="employee.salary" 
+        name="salary">
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" [(ngModel)]="employee.email" [(ngModel)]="employee.userName"
+        name="email">
+    </div>
+
+    <div class="form-group">
+      <label>Occupation</label>
+      <input type="text" class="form-control" [(ngModel)]="employee.occupation" 
+        name="occupation">
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <input type="text" class="form-control" [(ngModel)]="employee.password" name="password">
+    </div>
+  </form>
+  <div class="modal-footer">
+    <button class="btn btn-success" type="submit" (click)="onSubmit()">Submit</button>
+
+    <button class="btn btn-secondary" type="button" (click)="close()">Close</button>
+  </div>
+</div>
+<!-- <div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLabel">Edit Employee</h5>
+  <button
+    type="button"
+    class="btn-close"
+    aria-label="Close"
+    (click)="close()"
+  ></button>
+</div>
+<div class="modal-body">
+  <form (ngSubmit)="editEmployee()">
+
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" [(ngModel)]="employee.name" name="name">
+    </div>
+
+    <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" class="form-control" [(ngModel)]="employee.lastname" name="lastname">
+      </div>
+  
+      <div class="form-group">
+        <label>Salary</label>
+        <input type="text" class="form-control" [(ngModel)]="employee.salary" 
+          name="salary">
+      </div>
+  
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" [(ngModel)]="employee.email" [(ngModel)]="employee.userName"
+          name="email">
+      </div>
+  
+      <div class="form-group">
+        <label>Occupation</label>
+        <input type="text" class="form-control" [(ngModel)]="employee.occupation" 
+          name="occupation">
+      </div>
+    </form>
+  <div class="modal-footer">
+    <button class="btn btn-success" type="submit" (click)="uptSubmit()">Update</button>
+    <button class="btn btn-secondary" type="button" (click)="close()">Cancel</button>
+  </div>
+</div> -->

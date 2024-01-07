@@ -1,0 +1,36 @@
+<!-- employees.component.html -->
+<div class="d-flex justify-content-between align-items-center">
+    <p>Employees List</p>
+    <!-- <i class="fas fa-plus-circle fa-2x text-success"  routerLink="addform" ></i> -->
+    <i class="fas fa-plus-circle fa-2x text-success"  (click)="openFormModal()" ></i>
+  </div>
+<div class="card" id="main-container" >
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>LastName</th>
+        <th>Email</th>
+        <th>Occupation</th>
+        <th>Salary</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees">
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.lastname }}</td>
+        <td>{{ employee.email }}</td>
+        <td>{{ employee.occupation }}</td>
+        <td>{{ employee.salary }}</td>
+        <td>
+          <i  class="fas fa-edit text-warning mr-2"  ></i>
+          <i class="fas fa-trash-alt text-danger" (click)="onDeleteEmployee(employee.id)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
