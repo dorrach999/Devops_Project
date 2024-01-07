@@ -40,7 +40,7 @@ pipeline {
              //beforeAgent true
             //}
             steps {
-                dir('frontend'){
+                dir('backend'){
                     sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/frontend-angular:$BUILD_ID .'
                     sh 'docker push $DOCKERHUB_CREDENTIALS_USR/frontend-angular:$BUILD_ID'
                     sh 'docker rmi $DOCKERHUB_CREDENTIALS_USR/frontend-angular:$BUILD_ID'
