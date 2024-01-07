@@ -20,10 +20,10 @@ pipeline {
 
         stage('Build Backend'){
             agent any
-          /* when {
+            when {
               changeset "**/backend/*.*"
             beforeAgent true
-           }*/
+           }
             steps {
                 dir('backend'){
                     sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/backend-springboot:$BUILD_ID .'
@@ -35,10 +35,10 @@ pipeline {
 
         stage('Build Frontend'){
             agent any
-            /*when {
+            when {
                changeset "**/frontend/*.*"
              beforeAgent true
-            }*/
+            }
             steps {
                 dir('frontend'){
                     sh 'docker build -t $DOCKERHUB_CREDENTIALS_USR/frontend-angular:$BUILD_ID .'
