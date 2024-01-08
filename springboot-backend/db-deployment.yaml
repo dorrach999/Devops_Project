@@ -1,0 +1,39 @@
+# Define a 'Service' To Expose mysql to Other Services
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql  # DNS name 
+spec:
+  ports:
+    - port: 3306
+      targetPort: 3306
+  selector:       # mysql Pod Should contain same labels
+    app: mysql
+---
+# Configure 'Deployment' of mysql server
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+spec:
+  selector: # mysql Pod Should contain same labels
+    matchLabels:
+      app: mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels: # Must match 'Service' and 'Deployment' selectors
+        app: mysql
+    spec:
+      containers:
+        - image: mysql:5.7 # image from docker-hub
+          name: mysql
+          env:
+            - name: MYSQL_DATABASE # Setting Database Name from a 'ConfigMap'
+              value: gestiontaches
+            - name: MYSQL_ROOT_PASSWORD
+              value: "root"
+          ports:
+            - containerPort: 3306
+              name: mysql
